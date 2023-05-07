@@ -1,22 +1,16 @@
 import React from 'react';
-import {
-  IconGitPullRequest,
-  IconAlertCircle,
-  IconMessages,
-  IconDatabase,
-  IconPencil,
-  IconChartArea,
-  IconChartLine,
-} from '@tabler/icons-react';
+import { IconPencil, IconChartLine } from '@tabler/icons-react';
 import { ThemeIcon, UnstyledButton, Group, Text } from '@mantine/core';
+import Link from 'next/link';
 
 interface MainLinkProps {
   icon: React.ReactNode;
   color: string;
   label: string;
+  href: string;
 }
 
-function MainLink({ icon, color, label }: MainLinkProps) {
+function MainLink({ icon, color, label, href }: MainLinkProps) {
   return (
     <UnstyledButton
       sx={(theme) => ({
@@ -35,13 +29,15 @@ function MainLink({ icon, color, label }: MainLinkProps) {
         },
       })}
     >
-      <Group>
-        <ThemeIcon color={color} variant='light'>
-          {icon}
-        </ThemeIcon>
+      <Link href={href}>
+        <Group>
+          <ThemeIcon color={color} variant='light'>
+            {icon}
+          </ThemeIcon>
 
-        <Text size='sm'>{label}</Text>
-      </Group>
+          <Text size='sm'>{label}</Text>
+        </Group>
+      </Link>
     </UnstyledButton>
   );
 }
@@ -51,11 +47,13 @@ const data = [
     icon: <IconPencil size='1rem' />,
     color: 'blue',
     label: 'Manage Course',
+    href: '/courses',
   },
   {
     icon: <IconChartLine size='1rem' />,
     color: 'teal',
     label: 'Analytics',
+    href: '',
   },
 ];
 
