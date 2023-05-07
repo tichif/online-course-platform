@@ -6,17 +6,21 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import {
   ActionIcon,
   AppShell,
+  Box,
   Group,
   Header,
   Navbar,
+  rem,
   useMantineColorScheme,
 } from '@mantine/core';
 import { IconSun, IconMoonStars } from '@tabler/icons-react';
 
-import { api } from '~/utils/api';
+import { MainLinks } from '~/components/shell/Navlinks';
+import { User } from '~/components/shell/user';
+
+// import { api } from '~/utils/api';
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: 'from tRPC' });
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
@@ -30,8 +34,13 @@ const Home: NextPage = () => {
         <AppShell
           padding='md'
           navbar={
-            <Navbar width={{ base: 300 }} height='100%' p='xs'>
-              {/* Navbar content */}
+            <Navbar p='xs' width={{ base: 300 }}>
+              <Navbar.Section grow mt='md'>
+                <MainLinks />
+              </Navbar.Section>
+              <Navbar.Section>
+                <User />
+              </Navbar.Section>
             </Navbar>
           }
           header={
