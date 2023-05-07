@@ -4,6 +4,9 @@ import {
   IconAlertCircle,
   IconMessages,
   IconDatabase,
+  IconPencil,
+  IconChartArea,
+  IconChartLine,
 } from '@tabler/icons-react';
 import { ThemeIcon, UnstyledButton, Group, Text } from '@mantine/core';
 
@@ -45,17 +48,15 @@ function MainLink({ icon, color, label }: MainLinkProps) {
 
 const data = [
   {
-    icon: <IconGitPullRequest size='1rem' />,
+    icon: <IconPencil size='1rem' />,
     color: 'blue',
-    label: 'Pull Requests',
+    label: 'Manage Course',
   },
   {
-    icon: <IconAlertCircle size='1rem' />,
+    icon: <IconChartLine size='1rem' />,
     color: 'teal',
-    label: 'Open Issues',
+    label: 'Analytics',
   },
-  { icon: <IconMessages size='1rem' />, color: 'violet', label: 'Discussions' },
-  { icon: <IconDatabase size='1rem' />, color: 'grape', label: 'Databases' },
 ];
 
 export function MainLinks() {
